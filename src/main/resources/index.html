@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我爱技术网</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form id="loginForm" th:action="@{/login}" th:method="post" th:object="${userBean}">
+    <table border="1">
+        <tr>
+            <!--<td><input type="text" name="name" value="" th:value="*{name}"/></td>
+            <td><input type="text" name="password" value="" th:value="*{password}"/></td>-->
+            <td><input type="submit" value="登录"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
