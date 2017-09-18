@@ -24,6 +24,7 @@ import javax.sql.DataSource;
 //扫描这个路径下面的mapper文件,扫描mybatis接口文件
 @MapperScan("com.iskill.myskill.dao")
 public class Application {
+    //日志
     private static Logger logger = Logger.getLogger(Application.class);
     //声明为bean
     @Bean

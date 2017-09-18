@@ -5,8 +5,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -16,8 +14,9 @@ import javax.validation.Valid;
  */
 @Controller
 @Scope("prototype")
+@RequestMapping("/login")
 public class UserLogin {
-    @RequestMapping("/login")
+    @RequestMapping("/userLogin")
     public ModelAndView userLogin(ModelAndView model, @Valid UserBean user, BindingResult result){
         System.out.println("账号：" + user.getName());
         System.out.println("密码：" + user.getPassword());

@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="myskills:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="myskill-1.0-SNAPSHOT.war">
+    <root id="archive" name="myskill-1.0.war">
       <element id="artifact" artifact-name="myskills:war exploded" />
     </root>
   </artifact>

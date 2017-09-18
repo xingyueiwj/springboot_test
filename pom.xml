@@ -4,15 +4,16 @@
   <groupId>com.5iskill</groupId>
   <artifactId>myskill</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>myskill Maven Webapp</name>
     <!--如果本地没有jar,则去这个网站寻找-->
   <url>http://maven.apache.org</url>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.2.5.RELEASE</version>
+      <version>1.2.5.RELEASE</version>
   </parent>
+
   <!--强制编码-->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,14 +21,16 @@
     <version.jackson>2.4.4</version.jackson>
     <java.version>1.8</java.version>
   </properties>
+
   <!--Spring Boot-->
   <!--支持 Web 应用开发，包含 Tomcat 和 spring-mvc。 -->
   <dependencies>
     <!--默认配置-->
-   <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+
     <!--移除对嵌入式Tomcat的依赖-->
     <!--<dependency>
       <groupId>org.springframework.boot</groupId>
@@ -39,6 +42,7 @@
         </exclusion>
       </exclusions>
     </dependency>-->
+
     <!--移除对Tomcat的依赖后，为了保证编译正确，还需要添加对servlet-api的依赖
       将scope属性设置为provided，这样在最终形成的WAR中不会包含这个JAR包-->
     <!--<dependency>
@@ -47,21 +51,25 @@
       <version>7.0.42</version>
       <scope>provided</scope>
     </dependency>-->
+
     <!--模板引擎,需要文件放置的位置-->
    <!-- <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>-->
+
     <!--支持使用 JDBC 访问数据库-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
+
     <!--添加适用于生产环境的功能，如性能指标和监测等功能。 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+
     <!--Mybatis-->
     <dependency>
       <groupId>org.mybatis</groupId>
@@ -73,6 +81,7 @@
       <artifactId>mybatis</artifactId>
       <version>3.2.8</version>
     </dependency>
+
     <!--Mysql / DataSource-->
     <dependency>
       <groupId>org.apache.tomcat</groupId>
@@ -82,28 +91,47 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
+
     <!--Json Support-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.1.43</version>
     </dependency>
+
     <!--热部署-->
-    <dependency>
+    <!--<dependency>
       <groupId>org.springframework</groupId>
       <artifactId>springloaded</artifactId>
       <version>1.2.5.RELEASE</version>
-    </dependency>
+    </dependency>-->
+      <!--<dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-devtools</artifactId>
+          <version>1.5.4.RELEASE</version>
+          <optional>true</optional>
+          <scope>true</scope>
+      </dependency>-->
   </dependencies>
+
   <!--maven构建打包-->
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+       <!-- <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                &lt;!&ndash; 如果没有该项配置，devtools不会起作用，即应用不会restart &ndash;&gt;
+                <fork>true</fork>
+            </configuration>
+        </plugin>-->
     </plugins>
   </build>
+
   <!--官方依赖下载-->
   <repositories>
     <repository>
