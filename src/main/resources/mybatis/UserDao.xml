@@ -3,8 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iskill.myskill.dao.UserDao">
  
-  <select id="findUserInfo" resultType="com.iskill.myskill.bean.UserBean">
-    select name,password from user;
-  </select>
- 
+    <select id="getUserInfo" resultType="int">
+      select count(1)
+      from user
+      where `name` = #{userAccount} and `password` = #{userPassword};
+    </select>
+
+    <select id="checkUserAccount" resultType="int">
+        select count(1)
+        from user
+        where `name` = #{userAccount};
+    </select>
+
+    <insert id="addUser">
+        insert into user
+        (`name`,`password`,`createTime`) VALUES (#{userAccount},#{userPassword},NOW());
+    </insert>
 </mapper>

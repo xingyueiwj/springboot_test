@@ -25,8 +25,8 @@
 					<ul class="nav navbar-nav hideNavCss">
 						<li><a href="javascript:void(0);" onclick="loadMyPage()">个人主页</a></li>
 						<li><a href="javascript:void(0);" onclick="loadSkillInterlocution()">技术问答</a></li>
-						<li><a href="javascript:void(0);" onclick="skillMap()">能力地图</a></li>
-						<li><a href="javascript:void(0);" onclick="manager()">系统管理</a></li>
+						<li><a href="javascript:void(0);" onclick="loadSkillMap()">能力地图</a></li>
+						<li><a href="javascript:void(0);" onclick="loadManager()">系统管理</a></li>
 					</ul>
 				</div>
 				<div class="navRightCss">
@@ -36,8 +36,8 @@
 						   		<!-- <img src="/webpage/common/img/apple-xingyue-icon.png" alt="my head picture" width="40" height="40"> -->
 						    </a>
 						</li>
-						<li><a class="unloadCss">您还没有登录 -></a></li>
-						<li><a href="/webpage/view/login/page/login.html" class="loadCss"><button class="btn btn-primary">登录</button></a></li>
+						<li><a class="unloadCss loadingCss">您还没有登录 -></a></li>
+						<li><a href="javascript:void(0);" onclick="login()" class="loadCss"><button class="btn btn-primary">登录</button></a></li>
 				    </ul>
 				</div>
 			</div>
@@ -69,6 +69,7 @@
 					<p>这里查询出推荐文章/p>
 				</div>
             </div>
+			<div id="loginId"></div>
         </div>
 		<!-- footer -->
 		<footer>

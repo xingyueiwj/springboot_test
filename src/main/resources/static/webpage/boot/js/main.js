@@ -1,27 +1,79 @@
 // 初始化操作
+var page = {};
+page.lockPage = false;
 $(function(){
-    // $("#mainId").load('/webpage/view/index/page/index.html');
-    //检测有没有登录,如果没有则不能点击其他四个按钮
-    $("#navContentId").find("a").removeAttr("onclick");
-    // var onclicks = $("#navContentId").find("a");
-    // onclicks[0].attr("onclick","loadMyPage()");
-    // onclicks[1].attr("onclick","loadSkillInterlocution()");
-    // onclicks[2].attr("onclick","skillMap()");
-    // onclicks[3].attr("onclick","manager()");
+    //加载主页面时获取session
+    getSession();
 });
+function getSession(){
+    $.ajax({
+        type: "POST",
+        url: "/login/getSession",
+        data: {},
+        dataType: "json",
+        success: function(data){
+            if(data){
+                //已经登录,关闭模态,对限制取消
+                $("#navContentId").find("ul").removeClass("hideNavCss");
+                $(".unloadCss").text("欢迎您, " + data);
+                $(".unloadCss").removeClass('unloadCss');
+                $(".loadCss").find("button").text("注销");
+                page.lockPage = true;
+            }
+        }
+    });
+}
 
 function loadMyPage() {
-    $("#mainId").load('/webpage/view/myPage/page/myArticle.html');
+    if (page.lockPage){
+        $("#mainId").load('/webpage/view/myPage/page/myArticle.html');
+    }else{
+        $("#loginId").load('/webpage/view/login/page/login.html');
+    }
 }
 
 function loadSkillInterlocution(){
-    $("#mainId").load('/webpage/view/skillInterlocution/page/allQuestion.html');
+    if (page.lockPage){
+        $("#mainId").load('/webpage/view/skillInterlocution/page/allQuestion.html');
+    }else{
+        $("#loginId").load('/webpage/view/login/page/login.html');
+    }
 };
 
-function skillMap(){
-    $("#mainId").load('/webpage/view/skillMap/page/skillMap.html');
+function loadSkillMap(){
+    if (page.lockPage){
+        $("#mainId").load('/webpage/view/skillMap/page/skillMap.html');
+    }else{
+        $("#loginId").load('/webpage/view/login/page/login.html');
+    }
 };
 
-function manager(){
-    $("#mainId").load('/webpage/view/manager/page/manager.html');
+function loadManager(){
+    if (page.lockPage){
+        $("#mainId").load('/webpage/view/manager/page/manager.html');
+    }else{
+        $("#loginId").load('/webpage/view/login/page/login.html');
+    }
 };
+
+function login(){
+    if (page.lockPage){
+        loginOut();
+    }else{
+        $("#loginId").load('/webpage/view/login/page/login.html');
+    }
+}
+
+function loginOut(){
+    $.ajax({
+        type: "POST",
+        url: "/login/loginOut",
+        data: {},
+        dataType: "json",
+        success: function(data){
+            if(data){
+                window.location.reload();
+            }
+        }
+    });
+}

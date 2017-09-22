@@ -59,6 +59,11 @@ footer {
   padding: 3px 10px;
 }
 
+.loadingCss{
+    padding: 15px 10px;
+    color: #777777 !important;
+}
+
 .unloadCss{
   padding: 15px 10px;
   color:red !important;
@@ -67,7 +72,6 @@ footer {
 .loadCss{
   padding: 7px 10px !important;
 }
-
 /********************
  * MAIN INDEX LAYOUT
  ********************/
