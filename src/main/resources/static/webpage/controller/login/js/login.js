@@ -160,7 +160,6 @@ function loginAjax(){
                     $(".unloadCss").text("欢迎您, " + account);
                     $(".unloadCss").removeClass('unloadCss');
                     $(".loadCss").find("button").text("注销");
-                    debugger
                     page.lockPage = true;
                 }else{
                     shakeModal("login fail");
