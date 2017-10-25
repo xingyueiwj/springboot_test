@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>博客网</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<!-- BOOTSTRAP CSS -->
+		<!-- <link rel="stylesheet" href="/webpage/common/bootstrap/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="/webpage/common/bootstrap/css/bootstrap-table.min.css">
+
+		<!-- PUBLIC CSS -->
+		<link rel="stylesheet" href="/webpage/common/styles/layout.css">
+		<link rel="stylesheet" href="/webpage/common/styles/color.css">
+		<link rel="stylesheet" href="/webpage/common/styles/typography.css">
+
+		<!-- INDEX CSS -->
+		<link rel="stylesheet" href="../css/owner-layout.css">
+		<link rel="stylesheet" href="../css/owner-color.css">
+		<link rel="stylesheet" href="../css/owner-typography.css">
+
+
+		<!-- ICONS -->
+		<link rel="apple-touch-icon" sizes="76x76" href="/webpage/common/images/apple-xingyue-icon.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/webpage/common/images/xingyue-icon.png">
+	</head>
+
+
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="/webpage/view/index/page/index.html">我的技术博客</a></li>
+					<li><a href="/webpage/view/owner/page/owner.html">个人主页</a></li>
+					<!-- <li><a href="/webpage/view/answer/page/answer.html">技术问答</a></li>
+					<li><a href="/webpage/view/skillmap/page/skillmap.html">能力地图</a></li>
+					<li><a href="/webpage/view/manager/page/manager.html">系统管理</a></li> -->
+				</ul>
+			</nav>
+		</header>
+		
+		<div class="mainContext">
+			<nav>
+				<ul>
+					<li><a href="#myArticle">我的文章</a></li>
+					<li><a href="#myMyDate">我的资料</a></li>
+					<li><a href="#myReadBook">我读过的书</a></li>
+					<li><a href="#myHaveGone">我去过的地方</a></li>
+				</ul>
+			</nav>
+			<section id="myArticle">
+				<table id="myArticleList"></table>
+			</section>
+			<section id="myMyDate">
+				<div> 我的资料</div>
+			</section>
+			<section id="myReadBook">
+				<div>我读过的书</div>
+			</section>
+			<section id="myHaveGone">
+				<div>我去过的地方</div>
+			</section>
+		</div>
+
+		<script src="/webpage/common/jquery/jquery.min.js"></script>
+		<script src="/webpage/common/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/webpage/common/bootstrap/js/bootstrap-table.min.js"></script>
+		<script src="/webpage/common/bootstrap/js/bootstrap-table-zh-CN.min.js"></script>
+		<script src="/webpage/controller/owner/js/owner.js"></script>
+	</body>
+
+	<!-- footer -->
+	<footer>
+		<div class="footerLayout">
+			<p class="copyright">&copy; 2017 
+				<a href="http://www.5iskill.com/" target="_blank">www.5iskill.com</a>
+				. All Rights Reserved
+			</p>
+		</div>
+	</footer>
+</html>

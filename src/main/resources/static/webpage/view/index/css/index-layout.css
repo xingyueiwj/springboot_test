@@ -1,0 +1,59 @@
+.mainContext {
+	min-width: 980px;
+    max-width: 1256px;
+    margin: 0 auto;
+}
+
+.newsPublic {
+	min-width: 980px;
+    max-width: 1256px;
+	word-break:break-all;
+	border-width: .1em;
+	border-style: solid;
+	border-top-width: 1px;
+	padding: 1em 3%;
+	margin-top: .6em;
+	line-height: 2em;
+}
+
+.skillArticlePages {
+	padding-left: 280px;
+	box-sizing: border-box;
+    float: right;
+    width: 100%;
+	word-break:break-all;
+	margin-top: .6em;
+	line-height: 2em;
+}
+.skillArticle {
+	min-height: 803px;
+	border-width: .1em;
+	border-style: solid;
+	border-top-width: 1px;
+	padding: 1em 2%;
+}
+.skillArticle div{
+	word-break:break-all;
+	border-bottom: 1px dashed #445;
+	padding: 1em 2%;
+	margin-top: .6em;
+}
+.component {
+    float: left;
+    width: 270px;
+    margin: 0 auto;
+    margin-right: -270px;
+}
+.component div{
+	min-height: 240px;
+	word-break:break-all;
+	border-width: .1em;
+	border-style: solid;
+	border-top-width: 1px;
+	padding: 1em 2%;
+	margin-top: .6em;
+	line-height: 2em;
+}
+.clear {
+	clear: both;
+}

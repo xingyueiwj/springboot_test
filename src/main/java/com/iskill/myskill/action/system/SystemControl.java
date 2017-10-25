@@ -17,6 +17,6 @@ public class SystemControl {
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(){
         logger.info("<---进入主页方法中--->");
-        return "main";
+        return "index";
     }
 }

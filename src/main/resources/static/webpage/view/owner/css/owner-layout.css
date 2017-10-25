@@ -1,0 +1,25 @@
+.mainContext {
+	padding-top: 1em;
+	min-width: 980px;
+    max-width: 1256px;
+    margin: 0 auto;
+}
+.mainContext nav {
+	margin-bottom: 1em;
+}
+.mainContext nav ul {
+	width: 100%;
+	overflow: hidden;
+}
+
+.mainContext nav li {
+	display: inline;
+}
+
+.mainContext nav li a {
+	text-align: center;
+    display: block;
+    float: left;
+    padding: .5em 3em;
+    border-right: .1em solid;
+}
