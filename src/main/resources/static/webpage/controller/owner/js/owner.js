@@ -51,7 +51,7 @@ var TableInit = function () {
         $('#myArticleList').bootstrapTable({
             url: '/article/getMyArticleList',         //请求后台的URL（*）
             method: 'get',                      //请求方式（*）
-            // toolbar: '#toolbar',                //工具按钮用哪个容器
+            toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: true,                   //是否显示分页（*）
@@ -105,11 +105,41 @@ var TableInit = function () {
 
 var ButtonInit = function () {
     var oInit = new Object();
-    var postdata = {};
-
     oInit.Init = function () {
         //初始化页面上面的按钮事件
-    };
+        $("#myArticle_btn_add").click(function(){
+            openModal();
+        });
+        $("#addMyArticle").click(function(){
+            addMyArticle();
+        });
 
+        $("#myArticle_btn_edit").click(function(){
+            updateMyArticle();
+        });
+        $("#myArticle_btn_delete").click(function(){
+            deleteMyArticle();
+        });
+    };
     return oInit;
 };
+
+function openModal() {
+    $("#addMyArticleModal").modal();
+}
+
+function addMyArticle() {
+    var articleTitle = $("#myArticleTitle").val();
+    var articleCotent = $("#myArticleDetail").val();
+    if(articleTitle && articleCotent){
+        debugger;
+    }
+}
+
+function updateMyArticle() {
+
+}
+
+function deleteMyArticle() {
+
+}

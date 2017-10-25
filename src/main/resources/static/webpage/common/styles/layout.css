@@ -43,9 +43,9 @@ footer {
     width: 100%;
 }
 .footerLayout {
-	padding: 10px;
+	/*padding: 10px;*/
     min-width: 980px;
-    max-width: 1237px;
+    max-width: 1259px;
     margin: 0 auto;
     text-align: center;
     background-color: #99a;
