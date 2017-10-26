@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//com.iskill.myskill.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iskill.myskill.dao.ArticleDao">
+    <insert id="addMyArticle">
+        INSERT INTO article (`title`,`articleContent`,`createTime`) VALUES (#{articleTitle},#{articleContent},NOW());
+    </insert>
+
+    <select id="getMyArticleList" resultType="com.iskill.myskill.bean.ArticleBean">
+        SELECT id,title,articleContent,createTime FROM article WHERE isValid = #{isValid} ORDER by createTime desc limit #{offset},#{limit};
+    </select>
+
+    <select id="getMyArticleCount" resultType="int">
+        SELECT count(*) FROM article WHERE isValid = #{isValid};
+    </select>
+</mapper>
