@@ -157,7 +157,12 @@ function addMyArticle() {
 }
 
 function updateMyArticle() {
-
+    debugger
+    var getSelection = $('#myArticleList').bootstrapTable('getSelections');
+    if (getSelection.length == 0){
+        return false;
+    }
+    console.info(getSelection);
 }
 
 function deleteMyArticle() {

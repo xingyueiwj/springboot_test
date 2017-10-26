@@ -24,7 +24,6 @@ function initArticles(page){
         data: {offset : offset,limit :limit},
         dataType: "json",
         success: function(data){
-            debugger
             if (data && data.rows){
                 if(data.total > 5){
                     initPagination(page||1,data.total/5+1);
