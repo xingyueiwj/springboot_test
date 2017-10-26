@@ -79,13 +79,23 @@ var TableInit = function () {
                 checkbox: true
             }, {
                 field: 'title',
-                title: '标题'
+                title: '标题',
+                width:200
             }, {
                 field: 'articleContent',
-                title: '文章内容'
+                title: '文章内容',
+                width:700,
+                formatter:function (value,row,index) {
+                    if (row && row.articleContent && row.articleContent.length > 10){
+                        return row.articleContent.substring(0,80) + "...";
+                    }else{
+                        return row.articleContent;
+                    }
+                }
             }, {
                 field: 'createTime',
-                title: '创建时间'
+                title: '创建时间',
+                width:300,
             } ]
         });
     };
@@ -132,7 +142,7 @@ function addMyArticle() {
     var articleContent = $("#myArticleDetail").val();
     if(articleTitle && articleContent){
         $.ajax({
-            type: "POST",
+            type: "post",
             url: "/article/addMyArticle",
             data: {articleTitle:articleTitle, articleContent:articleContent},
             dataType: "json",

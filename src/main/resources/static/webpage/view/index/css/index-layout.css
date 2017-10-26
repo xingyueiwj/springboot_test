@@ -17,7 +17,7 @@
 }
 
 .skillArticlePages {
-	padding-left: 280px;
+	/*padding-left: 280px;*/
 	box-sizing: border-box;
     float: right;
     width: 100%;
@@ -25,6 +25,7 @@
 	margin-top: .6em;
 	line-height: 2em;
 }
+
 .skillArticle {
 	min-height: 683px;
 	border-width: .1em;
@@ -32,28 +33,36 @@
 	border-top-width: 1px;
 	padding: 1em 2%;
 }
+
 .skillArticle div{
 	word-break:break-all;
 	border-bottom: 1px dashed #445;
 	padding: 1em 2%;
 	margin-top: .6em;
 }
-.component {
-    float: left;
-    width: 270px;
-    margin: 0 auto;
-    margin-right: -270px;
-}
-.component div{
-	min-height: 222px;
-	word-break:break-all;
-	border-width: .1em;
-	border-style: solid;
-	border-top-width: 1px;
-	padding: 1em 2%;
-	margin-top: .6em;
-	line-height: 2em;
-}
+
+/*.component {*/
+    /*float: left;*/
+    /*width: 270px;*/
+    /*margin: 0 auto;*/
+    /*margin-right: -270px;*/
+/*}*/
+
+/*.component div{*/
+	/*min-height: 222px;*/
+	/*word-break:break-all;*/
+	/*border-width: .1em;*/
+	/*border-style: solid;*/
+	/*border-top-width: 1px;*/
+	/*padding: 1em 10%;*/
+	/*margin-top: .6em;*/
+	/*line-height: 2em;*/
+/*}*/
+
 .clear {
 	clear: both;
+}
+
+.pagination {
+	float: right;
 }

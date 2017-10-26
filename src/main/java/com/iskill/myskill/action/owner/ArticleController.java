@@ -43,6 +43,7 @@ public class ArticleController {
             ResultList resultList = new ResultList();
             resultList.setRows(articleList);
             resultList.setTotal(articleCount);
+            resultList.setOffset(offset);
             resultList.setSuccess(true);
             return resultList;
         }
