@@ -119,6 +119,10 @@ var TableInit = function () {
                     $("#myArticle_btn_delete").removeClass("disabled");
                 }
             },
+            onCheckAll:function(){
+                $("#myArticle_btn_delete").removeAttr("disabled");
+                $("#myArticle_btn_delete").removeClass("disabled");
+            },
             onUncheck:function () {
                 var getSelection = $('#myArticleList').bootstrapTable('getSelections');
                 if (getSelection.length == 0){
@@ -135,6 +139,10 @@ var TableInit = function () {
                     $("#myArticle_btn_delete").removeAttr("disabled");
                     $("#myArticle_btn_delete").removeClass("disabled");
                 }
+            },
+            onUncheckAll:function(){
+                $("#myArticle_btn_delete").attr("disabled","disabled");
+                $("#myArticle_btn_delete").addClass("disabled");
             }
         });
     };
