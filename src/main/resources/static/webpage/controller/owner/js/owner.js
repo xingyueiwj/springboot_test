@@ -217,7 +217,6 @@ function updateMyArticle() {
         data: {articleId:articleId,articleTitle:articleTitle, articleContent:articleContent},
         dataType: "json",
         success: function(data){
-            debugger
             if (data){
                 $("#updateMyArticleModal").modal("hide");
                 $("#myArticleList").bootstrapTable('refresh');
@@ -230,7 +229,6 @@ function deleteMyArticle() {
     if (getSelection.length == 0){
         return false;
     }
-    debugger
     var articleIds = "";
     for(var i = 0; i<getSelection.length;i++){
         articleIds += getSelection[i].id + ",";

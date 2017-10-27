@@ -58,7 +58,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/myskill-1.0/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="E:\springboot_test\target/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="myskills/web/Web" />
     </root>

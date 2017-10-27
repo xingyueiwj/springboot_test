@@ -26,7 +26,11 @@ function initArticles(page){
         success: function(data){
             if (data && data.rows){
                 if(data.total > 5){
-                    initPagination(page||1,data.total/5+1);
+                    if(data.total % 2 == 0){
+                        initPagination(page||1,data.total/5);
+                    }else{
+                        initPagination(page||1,data.total/5+1);
+                    }
                 }
                 $(".skillArticle").text("");
                 $(".articleListul").text("");
