@@ -96,7 +96,46 @@ var TableInit = function () {
                 field: 'createTime',
                 title: '创建时间',
                 width:300,
-            } ]
+            } ],onLoadSuccess:function () {
+                $("#myArticle_btn_edit").attr("disabled","disabled");
+                $("#myArticle_btn_edit").addClass("disabled");
+                $("#myArticle_btn_delete").attr("disabled","disabled");
+                $("#myArticle_btn_delete").addClass("disabled");
+            },
+            onCheck:function(){
+                var getSelection = $('#myArticleList').bootstrapTable('getSelections');
+                if (getSelection.length != 1 || getSelection.length == 0){
+                    $("#myArticle_btn_edit").attr("disabled","disabled");
+                    $("#myArticle_btn_edit").addClass("disabled");
+                }else{
+                    $("#myArticle_btn_edit").removeAttr("disabled");
+                    $("#myArticle_btn_edit").removeClass("disabled");
+                }
+                if (getSelection.length == 0){
+                    $("#myArticle_btn_delete").attr("disabled","disabled");
+                    $("#myArticle_btn_delete").addClass("disabled");
+                }else{
+                    $("#myArticle_btn_delete").removeAttr("disabled");
+                    $("#myArticle_btn_delete").removeClass("disabled");
+                }
+            },
+            onUncheck:function () {
+                var getSelection = $('#myArticleList').bootstrapTable('getSelections');
+                if (getSelection.length == 0){
+                    $("#myArticle_btn_edit").attr("disabled","disabled");
+                    $("#myArticle_btn_edit").addClass("disabled");
+                    $("#myArticle_btn_delete").attr("disabled","disabled");
+                    $("#myArticle_btn_delete").addClass("disabled");
+                }
+                if (getSelection.length == 1){
+                    $("#myArticle_btn_edit").removeAttr("disabled");
+                    $("#myArticle_btn_edit").removeClass("disabled");
+                }
+                if (getSelection.length > 0){
+                    $("#myArticle_btn_delete").removeAttr("disabled");
+                    $("#myArticle_btn_delete").removeClass("disabled");
+                }
+            }
         });
     };
 
@@ -122,9 +161,11 @@ var ButtonInit = function () {
         $("#addMyArticle").click(function(){
             addMyArticle();
         });
-
-        $("#myArticle_btn_edit").click(function(){
+        $("#updateMyArticle").click(function(){
             updateMyArticle();
+        });
+        $("#myArticle_btn_edit").click(function(){
+            openUpdateModal();
         });
         $("#myArticle_btn_delete").click(function(){
             deleteMyArticle();
@@ -156,15 +197,56 @@ function addMyArticle() {
     }
 }
 
+function openUpdateModal() {
+    var getSelection = $('#myArticleList').bootstrapTable('getSelections');
+    if (getSelection.length != 1){
+        return false;
+    }
+    $("#updateMyArticleModal").modal();
+    $("#updateMyArticleTitle").val(getSelection[0].title);
+    $("#updateMyArticleDetail").val(getSelection[0].articleContent);
+    $("#updateMyArticleId").val(getSelection[0].id);
+}
 function updateMyArticle() {
-    debugger
+    var articleId = $("#updateMyArticleId").val();
+    var articleTitle = $("#updateMyArticleTitle").val();
+    var articleContent = $("#updateMyArticleDetail").val();
+    $.ajax({
+        type: "post",
+        url: "/article/updateMyArticle",
+        data: {articleId:articleId,articleTitle:articleTitle, articleContent:articleContent},
+        dataType: "json",
+        success: function(data){
+            debugger
+            if (data){
+                $("#updateMyArticleModal").modal("hide");
+                $("#myArticleList").bootstrapTable('refresh');
+            }
+        }
+    });
+}
+function deleteMyArticle() {
     var getSelection = $('#myArticleList').bootstrapTable('getSelections');
     if (getSelection.length == 0){
         return false;
     }
-    console.info(getSelection);
-}
-
-function deleteMyArticle() {
-
+    debugger
+    var articleIds = "";
+    for(var i = 0; i<getSelection.length;i++){
+        articleIds += getSelection[i].id + ",";
+    }
+    if (articleIds){
+        articleIds = articleIds.substring(0,articleIds.length-1);
+        if(confirm("确定删除吗?")){
+            $.ajax({
+                type: "post",
+                url: "/article/deleteMyArticle",
+                data: {articleIds:articleIds},
+                dataType: "json",
+                success: function(data){
+                    $("#myArticleList").bootstrapTable('refresh');
+                }
+            });
+        }
+    }
 }

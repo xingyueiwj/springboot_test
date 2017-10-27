@@ -7,7 +7,11 @@ import java.util.List;
 public interface ArticleService {
     Boolean addMyArticle(String articleTitle, String articleContent);
 
+    Boolean updateMyArticle(String articleId, String articleTitle, String articleContent, String isValid);
+
+    Boolean deleteMyArticle(String articleId);
+
     List<ArticleBean> getMyArticleList(int limit, int offset ,String isValid);
 
-    int getMyArticleCount(String isValid);
+    Integer getMyArticleCount(String isValid);
 }

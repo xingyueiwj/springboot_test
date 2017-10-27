@@ -5,6 +5,19 @@
     <insert id="addMyArticle">
         INSERT INTO article (`title`,`articleContent`,`createTime`) VALUES (#{articleTitle},#{articleContent},NOW());
     </insert>
+    
+    <update id="updateMyArticle">
+        UPDATE article SET title = #{articleTitle}, articleContent = #{articleContent} WHERE id = #{articleId} and isValid = #{isValid}
+    </update>
+
+    <!-- 批量删除 -->
+    <delete id="deleteMyArticle" parameterType="list">
+        UPDATE article SET isValid = "0"
+        where isValid = "1" and id in
+            <foreach item="articleId" collection="list" open="(" close=")" separator=",">
+                #{articleId}
+            </foreach>
+    </delete>
 
     <select id="getMyArticleList" resultType="com.iskill.myskill.bean.ArticleBean">
         SELECT id,title,articleContent,createTime FROM article WHERE isValid = #{isValid} ORDER by createTime desc limit #{offset},#{limit};

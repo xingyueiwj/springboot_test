@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -31,6 +32,30 @@ public class ArticleController {
                 logger.info("文章新增成功!");
             }
             return isAddArticle;
+        }
+        return false;
+    }
+
+    @RequestMapping(value = "/updateMyArticle",method = RequestMethod.POST)
+    public boolean updateMyArticle(String articleId,String articleTitle, String articleContent){
+        if (StringUtils.isNotEmpty(articleId) && StringUtils.isNotEmpty(articleTitle) && StringUtils.isNotEmpty(articleContent)){
+            boolean isUpdateArticle = articleService.updateMyArticle(articleId, articleTitle, articleContent, Constants.isValid);
+            if (isUpdateArticle){
+                logger.info("文章修改成功!");
+            }
+            return isUpdateArticle;
+        }
+        return false;
+    }
+
+    @RequestMapping(value = "/deleteMyArticle",method = RequestMethod.POST)
+    public boolean deleteMyArticle(String articleIds){
+        if (StringUtils.isNotEmpty(articleIds)){
+            boolean isDeleteArticle = articleService.deleteMyArticle(articleIds);
+            if (isDeleteArticle){
+                logger.info("文章删除成功!");
+            }
+            return isDeleteArticle;
         }
         return false;
     }
