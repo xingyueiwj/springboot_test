@@ -1,9 +1,9 @@
 .mainContext nav {
-	background-color: #789;
+	/*background-color: #5a6daf;*/
 }
 .mainContext nav a:link,.mainContext nav a:visited {
 	color: #eef;
-	background-color: #789;
+	background-color: #5a6daf;
 	border-color: #99a;
 }
 
@@ -16,4 +16,9 @@
 	color: #445;
 	background-color: #cfe5f3;
 }
-
+.fixed-table-body {
+	background-color: #ffffff;
+}
+.fixed-table-header {
+	background-color: #ffffff;
+}

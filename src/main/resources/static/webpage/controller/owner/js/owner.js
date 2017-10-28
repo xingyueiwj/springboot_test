@@ -250,7 +250,7 @@ function deleteMyArticle() {
                 data: {articleIds:articleIds},
                 dataType: "json",
                 success: function(data){
-                    $("#myArticleList").bootstrapTable('refresh');
+                    location.reload();
                 }
             });
         }
